@@ -70,7 +70,7 @@ def main():
 
 
 	
-        elif (x == 2)
+        elif (x == 2):
         
 	    resp = wall_follower_client(False)
 
