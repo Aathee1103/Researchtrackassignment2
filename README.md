@@ -21,13 +21,16 @@ The final_assignment package contains the scripts,launch files and other depende
 
 The simulation is done in following steps:
 
-1.For the first state, final_user_req.py node requests my_srv for a random target position between the range of 1 to 6. Then, the main node publishes the target positions to */move_base/goal* and check thes the status of goal by subscribing to the topic */move_base/status*. When the robot reaches the target and the status displays it in the node, the main node requests the user to input again.
+1.For the first step, final_user_req.py node requests my_srv for a random target position between the range of 1 to 6.Then,the main node publishes the target positions to */move_base/goal* and check thes the status of goal by subscribing to the topic */move_base/status*.When the robot reaches the target and the status of robot is displayed, the main node requests the user to input again.
 
-2.For the second state, the user chooses one out of six possible target positions and publishes it to */move_base/goal*.
+2.For the second step, the user chooses one out of six possible target positions and publishes it to */move_base/goal*.
 
-3.For the third state, the wall_follower service is generated through initialization of a service client to allow the robot to follow the walls.The interface also allows the user to enter the same or different request at any point in this state.
+3.For the third step,the wall_follower service is generated through initialization of a service client to allow the robot to follow the external walls.
 
-4.For the fourth state, the node stops all actions and stops the robot by publishing commands of zero velocity in topic */cmd_vel*.as in As in step 3,the interface allows the user to enter the same or different request at any point in this state.
+4.For the fourth step, the node stops all actions and stops the robot by publishing commands of zero velocity in topic */cmd_vel*.
+
+In steps 3 and 4,The interface also allows the user to enter the same or different request at any point in this state.
+
 
 # my_srv(server):
 
