@@ -1,5 +1,5 @@
 # Researchtrackassignment2
-# Done by Aatheethyaa Dhanasekaran(Matiocola No.:S5051520)
+# Done by Aatheethyaa Dhanasekaran(Maticola No.:S5051520)
 
 # Descrption of the Assignmnet:
 The assignment is done in a ROS architecture for controling a mobile robot in the Gazebo environment.The software relies on the move_base and gmapping packages for localizing the robot and plan its motion. The program acquires the user's request, and lets the robot execute one of the pre-defined behaviors accordingly, along with Simulataneous Localization and Mapping(SLAM),path planning and collision avoidance.specially,Gazebo and Rviz used for the simulation of the assignment,whereas Gazebo is the 3d simulator for ROS and rviz,abbreviation for ROS visualization, is a powerful 3D visualization tool for ROS. It allows the user to view the simulated robot model, log sensor information from the robot's sensors, and replay the logged sensor information.
@@ -22,11 +22,14 @@ The final_assignment package contains the scripts,launch files and other depende
 The simulation is done in following steps:
 
 1.For the first state, final_user_req.py node requests my_srv for a random target position between the range of 1 to 6. Then, the main node publishes the target positions to */move_base/goal* and check thes the status of goal by subscribing to the topic */move_base/status*. When the robot reaches the target and the status displays it in the node, the main node requests the user to input again.
+
 2.For the second state, the user chooses one out of six possible target positions and publishes it to */move_base/goal*.
+
 3.For the third state, the wall_follower service is generated through initialization of a service client to allow the robot to follow the walls.The interface also allows the user to enter the same or different request at any point in this state.
+
 4.For the fourth state, the node stops all actions and stops the robot by publishing commands of zero velocity in topic */cmd_vel*.as in As in step 3,the interface allows the user to enter the same or different request at any point in this state.
 
-# server:my srv
+# my_srv(server):
 
 The server package my_srv contains the Cpp file finalassignment_server.cpp which contains the source code for generating random integer within a specified range and advertising it over the node /final. It uprovides a requests with two integers namely min and max, and returns one random integer target_index within this range in response.
 
