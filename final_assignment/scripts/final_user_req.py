@@ -11,14 +11,11 @@ from my_srv.srv import Finalassignment
 
 target_reached_status = 0
 
-
-
 def clbk_move_base_status(msg):
     global target_reached_status
     if (len(msg.status_list) > 0):
         if msg.status_list[0].status == 3:
 	    target_reached_status = 1
-
 
 def main():
     rospy.init_node('final_user_req')
@@ -44,11 +41,10 @@ def main():
 
         x = int(raw_input("\nEnter a number from 1 to 4 corresponding to the chosen robot behavior: "))
 
-	
 	if (x == 1):
+	    
 	    resp = wall_follower_client(False)
-
-	    resp = random_index_service(1,6)
+            resp = random_index_service(1,6)
             rand_index = resp.target_index
 
             print("\nNew Target: (" + str(random_targets[rand_index -1][0]) + ", " + str(random_targets[rand_index -1][1]) + ")")
@@ -65,22 +61,22 @@ def main():
             target_reached_status = 0
 
 	    while(target_reached_status == 0):
-                sleep(1)
+               
+	    sleep(1)
             print('\nRobot reached the target position.')
 
-
-	
-        elif (x == 2):
+            elif (x == 2):
         
-	    resp = wall_follower_client(False)
+            resp = wall_follower_client(False)
 
 	    print("""\nTarget coordinates:
-1. (-4,-3)
-2. (-4,2)
-3. (-4,7) 
-4. (5,-7)
-5. (5,-3)
-6. (5,1)""")
+
+           1. (-4,-3)
+           2. (-4,2)
+           3. (-4,7) 
+           4. (5,-7)
+           5. (5,-3)
+           6. (5,1)""")
 
 	    user_input = int(raw_input("\nEnter the number corresponding to the desired target coordinates: "))
             print("\nThe new target position is ("+ str(random_targets[user_input-1][0]) + ", " + str(random_targets[user_input-1][1]) + ")")
@@ -98,7 +94,8 @@ def main():
 	    target_reached_status = 0
 
 	    while(target_reached_status == 0):
-	        sleep(1)
+	        
+		sleep(1)
             print('\nRobot has reached the target position.')
 
 	
@@ -111,7 +108,6 @@ def main():
         elif (x == 4):
 	    
             resp = wall_follower_client(False)
-
             twist_msg = Twist()
             twist_msg.linear.x = 0
             twist_msg.angular.z = 0
@@ -119,6 +115,7 @@ def main():
             print('\nRobot has stopped.')
 
 	else:
+		
 	    continue
 	
         rate.sleep()
