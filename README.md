@@ -36,7 +36,7 @@ In steps 3 and 4,The interface also allows the user to enter the same or differe
 
 The server package my_srv contains the Cpp file finalassignment_server.cpp which contains the source code for generating random integer within a specified range and advertising it over the node /final. It uprovides a requests with two integers namely min and max, and returns one random integer target_index within this range in response.
 
-# Simulation of the assignment is done by folling commands
+# Simulation of the assignment is done by follwing commands:
 
 
 1.In the command terminal, launch Gazebo and rviz by executing the following command:
@@ -54,6 +54,6 @@ The server package my_srv contains the Cpp file finalassignment_server.cpp which
 5.In a new command line terminal, run the following command:
       
       rosrun final_assignment final_user_req.py
-6.To display the computational graph of the system:
+6.To display the computational graph of the system,run the following command:
 
     rosrun rqt_graph rqt_graph
