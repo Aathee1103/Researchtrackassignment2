@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# importing ros dependencies
+# importing ros stuffs
 import rospy
 from std_srvs.srv import *
 import time
